@@ -1,25 +1,28 @@
 <!doctype html>
 <html lang='en'>
 <head>
-	<title>Simple Game - Rock, Paper, Scissors</title>
+	<title>Simple Game - Rock, Paper, Scissors - Project 1</title>
     <meta charset='utf-8'>
     <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+	<script src="script.js" defer></script>
 </head>
-<body onload="bodyLoaded()" >
-    <input type="radio" id="rock" value="Rock" name="choices" />Rock
-    <input type="radio" id="paper" value="Paper" name="choices" /> Paper
-    <input type="radio" id="scissors" value="Scissors" name="choices" />Scissors
-    <br />
-    <input type="button" id="btnPlay" value="Play..."/>
-    
-    <div id="divResult" class="hidden">
-        <p>
-            The computer chose : <span id="computerChoice"></span>
-        </p>
-        <p>
-            <span id="result"></span>
-        </p>        
-    </div>
+<body>
+	<div id='app' v-cloak>
+		<input type="radio" id="rock" value="Rock" name="choices" />Rock
+		<input type="radio" id="paper" value="Paper" name="choices" /> Paper
+		<input type="radio" id="scissors" value="Scissors" name="choices" />Scissors
+		<br />
+		<button @click='playGame'>Play...</button>	
+		
+		<div id="divResult" class="hidden">
+			<p>
+				The computer chose : <span id="computerChoice"></span>
+			</p>
+			<p>
+				<span id="result"></span>
+			</p>        
+		</div>
+	</div>
 </body>
 </html>
