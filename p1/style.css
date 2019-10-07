@@ -1,7 +1,13 @@
-.hidden {
-    visibility: hidden;
+[v-cloak] {
+    display: none;
 }
 
-.visible {
-    visibility: block;
+.error {
+	background-color: red;
+	color: white;
+}
+
+.pass {
+	background-color: green;
+	color: white;
 }

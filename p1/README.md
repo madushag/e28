@@ -1,9 +1,9 @@
 # Project 1
 + By: Madusha Gamage
-+ Production URL: <http://p1.yourdomain.com>
++ Production URL: <http://p1.mydegreestuff.com>
 
 ## Outside resources
-*your list of outside resources go here*
+None
 
 ## Notes for instructor
-*any notes for me to refer to while grading; if none, omit this section*
+None

@@ -3,24 +3,34 @@
 <head>
 	<title>Simple Game - Rock, Paper, Scissors - Project 1</title>
     <meta charset='utf-8'>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
-	<script src="script.js" defer></script>
+    <link rel='stylesheet' href='style.css'>
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js' defer></script>
+	<script src='script.js' defer></script>
 </head>
 <body>
 	<div id='app' v-cloak>
-		<input type="radio" id="rock" value="Rock" name="choices" />Rock
-		<input type="radio" id="paper" value="Paper" name="choices" /> Paper
-		<input type="radio" id="scissors" value="Scissors" name="choices" />Scissors
-		<br />
-		<button @click='playGame'>Play...</button>	
+		<input type='radio' id='rock' value='rock' v-model='playerChoice'>
+		<label for='rock'>Rock</label>
+				
+		<input type='radio' id='paper' value='paper' v-model='playerChoice'>
+		<label for='paper'>Paper</label>
+				
+		<input type='radio' id='scissors' value='scissors' v-model='playerChoice'>
+		<label for='scissors'>Scissors</label>
 		
-		<div id="divResult" class="hidden">
+		
+		<br />
+		
+		{{ playerChoice }}
+		
+		<button @click='playGame'>Play</button>			
+		<button @click='resetGame'>Reset</button>			
+		
+		<div v-if='played' :class="{ error : isError, success : !isError }">
+			<p v-if='!isError'>The computer chose : {{ computerChoice }}</p>
+			<p v-else=>{{ errorMessage }}</p>
 			<p>
-				The computer chose : <span id="computerChoice"></span>
-			</p>
-			<p>
-				<span id="result"></span>
+				<span id='result'></span>
 			</p>        
 		</div>
 	</div>

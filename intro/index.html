@@ -21,6 +21,15 @@
 		<ul>
 			<li v-for='thisGuess in guesses'>{{ thisGuess }}</li>
 		</ul>
+		
+		<input type='password' v-model='password'>
+		<input type='email' v-model='email'>
+
+		{{ password }}
+		{{ email }}
+		
+		<div class='a' v-bind:class="['b', 'c', { d : true }]"></div>
+
 	</div>
 </body>
 </html>

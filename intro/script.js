@@ -6,6 +6,9 @@ let app = new Vue({
 		isAdmin : true,
         playerName: "",
 		guess: null,
-        'guesses': []
+        'guesses': [],
+		password : '',
+		email : '',
+		testClass : true
     }
 })
