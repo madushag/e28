@@ -4,22 +4,78 @@ let app = new Vue({
 	el: '#app',
 	data: {        
 		played: false,
+		choices: ["rock", "paper", "scissors"],
 		computerChoice : '',
 		playerChoice: '',
 		isError: false,
-		errorMessage: ''
+		errorMessage: '',
+		resultMessage: ''
 	},
 	methods: {
 		playGame: function () {
 			this.played = true;			
+			
 			if(this.playerChoice === ''){
 				this.isError = true;
 				this.errorMessage = 'Please make a choice.';
+				this.played = false;
 			}
 			else{
 				this.isError = false;
 				
+				// randomly pick a value between 1 and 3
+				let computerChoiceIndex = Math.floor(Math.random() * 3);           
+				this.computerChoice = this.choices[computerChoiceIndex];
+				
+				let winner = this.determineWinner(this.playerChoice, this.computerChoice);
+				if(winner != "tie") {
+					 this.resultMessage = "The winner is the " + winner + ".";
+				}
+				else {
+					 this.resultMessage = "The game is a tie.";
+				}				
 			}
+		},
+		determineWinner : function (userChoice, computerChoice) {
+			let winner = '';
+
+			if(userChoice == "paper"){
+				if(computerChoice == "rock"){
+					winner = "user";
+				}
+				else if(computerChoice == "scissors") {
+					winner = "computer";
+				}
+				else {
+					winner = "tie";
+				}
+			}
+
+			if(userChoice == "rock"){
+				if(computerChoice == "scissors"){
+					winner = "user";
+				}
+				else if(computerChoice == "paper") {
+					winner = "computer";
+				}
+				else {
+					winner = "tie";
+				}
+			}
+			
+			if(userChoice == "scissors"){
+				if(computerChoice == "paper"){
+					winner = "user";
+				}
+				else if(computerChoice == "rock") {
+					winner = "computer";
+				}
+				else {
+					winner = "tie";
+				}
+			}
+
+			return winner;
 		},
 		resetGame: function () {
 			this.played = false;
@@ -27,77 +83,4 @@ let app = new Vue({
 		}
 	}
 })
-
-	// methods: {
-		// playGame : function (event) {
-			// var choices = ["Rock", "Paper", "Scissors"];
-			// var userChoice = document.querySelector('input[name="choices"]:checked');
-
-			// if(userChoice == null){
-				// alert("Please choose one option...");
-				// return;
-			// }
-			// else{
-				// var userChoiceText = userChoice.value;               
-				// var computerChoice = Math.floor(Math.random() * 3);           
-				// computerChoiceText = choices[computerChoice];
-				
-				// var winner = determineWinner(userChoiceText, computerChoiceText);
-
-				// document.getElementById("computerChoice").innerHTML = computerChoiceText;
-				
-				// var resultText;
-				// if(winner != "tie"){
-					// resultText = "The winner is the " + winner + ".";
-				// }
-				// else{
-					// resultText = "The game is a tie.";
-				// }
-					
-				// document.getElementById("result").innerHTML = resultText;
-				// document.getElementById("divResult").className = "visible";
-			// }    
-		// },
-		// determineWinner : function (userChoiceText, computerChoiceText) {
-			// var winner = "";
-
-			// if(userChoiceText == "Paper"){
-				// if(computerChoiceText == "Rock"){
-					// winner = "user";
-				// }
-				// else if(computerChoiceText == "Scissors") {
-					// winner = "computer";
-				// }
-				// else {
-					// winner = "tie";
-				// }
-			// }
-
-			// if(userChoiceText == "Rock"){
-				// if(computerChoiceText == "Scissors"){
-					// winner = "user";
-				// }
-				// else if(computerChoiceText == "Paper") {
-					// winner = "computer";
-				// }
-				// else {
-					// winner = "tie";
-				// }
-			// }
-			
-			// if(userChoiceText == "Scissors"){
-				// if(computerChoiceText == "Paper"){
-					// winner = "user";
-				// }
-				// else if(computerChoiceText == "Rock") {
-					// winner = "computer";
-				// }
-				// else {
-					// winner = "tie";
-				// }
-			// }
-
-			// return winner;
-		// }
-	//}
 
