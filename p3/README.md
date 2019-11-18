@@ -16,6 +16,3 @@
 ## Outside resources
 + The list of recipes was sourced from : https://github.com/LeaVerou/forkgasm/blob/master/recipes.json
 + Recipe images are loaded from a third party web site: http://forkgasm.com
-
-## Notes for instructor
-*Any notes for me to refer to while grading; if none, omit this section.*
