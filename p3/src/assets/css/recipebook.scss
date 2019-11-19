@@ -312,6 +312,15 @@ MISC
 
 }
 
+.numberedList {
+    list-style-type: decimal;
+    padding: 0;
+
+    .capitalize{
+        text-transform: capitalize;
+    }
+
+}
 .alert {
     background-color: $green;
     color: white;
