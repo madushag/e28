@@ -32,7 +32,7 @@
 			<b-container>				
 				<li v-for='(step, index) in recipe.step' :key='index'>
 					<b-row>
-						<b-col cols="12"><p class="text-left capitalize">{{ step.description }}</p></b-col>												
+						<b-col cols="12"><p class="text-left">{{ step.description }}</p></b-col>												
 					</b-row>
 				</li>				
 			</b-container>
