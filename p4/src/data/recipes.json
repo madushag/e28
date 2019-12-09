@@ -1,0 +1,195 @@
+{
+  "recipes": [
+    {
+      "name": "Tal’s Tahini “bread pudding”",
+      "id": "tahini-bread-pudding",
+      "description": "A delicious baked dessert that takes 5 minutes to make!",
+      "tag": [
+        "Dessert"
+      ],
+      "image": "http://forkgasm.com/images/bread-pudding.png",
+      "ingredients": [
+        {
+          "amount": "0.5",
+          "unit": "cup",
+          "name": "tahini"
+        },
+        {
+          "amount": "4",
+          "name": "eggs"
+        },
+        {
+          "amount": "1",
+          "unit": "tsp",
+          "name": "baking powder"
+        },
+        {
+          "amount": "30",
+          "unit": "g",
+          "name": "honey"
+        },
+        {
+          "amount": "3",
+          "unit": "tbsp",
+          "name": "Sukrin Gold or brown sugar"
+        },
+        {
+          "amount": "1",
+          "unit": "tsp",
+          "name": "maple extract"
+        },
+        {
+          "name": "cinammon",
+          "amount": "1",
+          "unit": "tsp"
+        },
+        {
+          "name": "sesame seeds for garnish"
+        }
+      ],
+      "step": [
+        {
+          "description": "Beat all ingredients together really well in a blender."
+        },
+        {
+          "description": "Pour mixture in an oiled cake tray (we suggest sesame oil for the oiling) and sprinkle with sesame seeds."
+        },
+        {
+          "description": "Bake for 25-30 minutes at 345F (convection bake is better). Depending on your oven, you may want to turn it around (horizontally) after 15 minutes to ensure even baking."
+        },
+        {
+          "description": "Done, enjoy! We actually eat it with a spoon straight from the cake tray!"
+        }
+      ]
+    },
+    {
+      "name": "Grand Marnier & Coffee Ice Cream",
+      "id": "grand-marnier-coffee-ice-cream",
+      "description": "Easy and decadent!",
+      "tag": [
+        "Dessert",
+        "Ice Cream"
+      ],
+      "ingredients": [
+        {
+          "amount": "4",
+          "unit": "cups",
+          "name": "heavy cream"
+        },
+        {
+          "amount": "1",
+          "unit": "cup",
+          "name": "icing sugar or substitite"
+        },
+        {
+          "amount": "4",
+          "name": "egg yolks"
+        },
+        {
+          "amount": "0.25",
+          "unit": "cup",
+          "name": "Grand Marnier"
+        },
+        {
+          "amount": "1",
+          "unit": "shot",
+          "name": "espresso"
+        },
+        {
+          "amount": "1",
+          "unit": "tbsp",
+          "name": "vanilla extract"
+        },
+        {
+          "name": "Cocoa nibs for garnish",
+          "preparation": "(Optional)"
+        }
+      ],
+      "step": [
+        {
+          "description": "Beat the heavy cream with half of the icing sugar substitute (added slowly) until starting to get thick"
+        },
+        {
+          "description": "Beat the egg yolks with the remaining half of the icing sugar substitute."
+        },
+        {
+          "description": "Whisk the Grand Marnier, coffee, vanilla extract into the egg yolk mixture."
+        },
+        {
+          "description": "Whisk the egg yolk mixture into the heavy cream mixture"
+        },
+        {
+          "description": "Done! Add to your ice cream machine per manufacturer's instructions or freeze and stir every 30 minutes or so."
+        }
+      ],
+      "image": "https://forkgasm.com/images/grand-marnier-ice-cream.jpg"
+    },
+    {
+      "image": "http://forkgasm.com/images/carbonara.jpg",
+      "name": "Turnip Noodle Carbonara",
+      "id": "turnip-carbonara",
+      "description": "A healthier version of the classic dish that tastes just as good!",
+      "tag": [
+        "Bacon"
+      ],
+      "ingredients": [
+        {
+          "amount": "16",
+          "unit": "oz",
+          "name": "turnip noodles"
+        },
+        {
+          "amount": "6",
+          "name": "rashers bacon"
+        },
+        {
+          "amount": "6",
+          "name": "eggs"
+        },
+        {
+          "amount": "0.5",
+          "unit": "cup",
+          "name": "parmesan",
+          "preparation": "grated"
+        },
+        {
+          "amount": "4",
+          "name": "cloves garlic",
+          "preparation": "chopped, optional"
+        },
+        {
+          "amount": "0.25",
+          "unit": "cup",
+          "name": "heavy cream"
+        },
+        {
+          "name": "Salt"
+        },
+        {
+          "name": "Pepper",
+          "preparation": "freshly ground"
+        }
+      ],
+      "step": [
+        {
+          "description": "Cut the bacon into lardons and sauté until it's lightly cooked."
+        },
+        {
+          "description": "While the bacon is cooking, separate the yolks from 4 of the eggs. Whisk the 4 yolks, 2 whole eggs, the grated parmesan, the cream, and salt and pepper."
+        },
+        {
+          "description": "If using garlic, add it once the bacon is starting to get cooked and saute for a few more minutes until fragrant"
+        },
+        {
+          "description": "Stir in turnip noodles until they are cooked through to desired doneness"
+        },
+        {
+          "description": "Turn the heat down to very low and stir in the egg mixture. Stir rapidly until it cooks, remove from heat."
+        },
+        {
+          "description": "Top with a little more ground pepper and serve!"
+        }
+      ]
+    }
+  ]
+}
