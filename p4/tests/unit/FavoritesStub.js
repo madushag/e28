@@ -1,16 +1,13 @@
-import store from '../store';
+// import store from './../../src/store';
 
-export default class Favorites {
+export default class FavoritesStub {
 
     /**
      * Default constructor
      */
     constructor() {
-        // Extract JSON favorites string from local storage
-        let favorites = localStorage.getItem('favorites');
-
-        // Parse JSON favorites String to `items` object
-        this.recipes = (favorites) ? JSON.parse(favorites) : [];
+        //let favorites = [];
+        this.recipes = [];
     }
 
     /**
@@ -25,13 +22,6 @@ export default class Favorites {
      */
     count() {
         return this.recipes.length;
-    }
-
-    /**
-     * Updates favorites in localstorage
-     */
-    update() {
-        localStorage.setItem('favorites', JSON.stringify(this.recipes))
     }
 
     /**
@@ -84,9 +74,8 @@ export default class Favorites {
                 name: recipeParam.name
             });
 
-            this.update();
 
-            store.commit('setFavoriteCount', this.count());
+            //store.commit('setFavoriteCount', this.count());
 
             return true;
         }

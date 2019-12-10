@@ -16,7 +16,7 @@
 				</b-card>
 			</router-link>
 			<br />
-			<b-button v-if="!existsInFavorites(recipe)" 
+			<b-button v-if="!(favorites.existsInFavorites(recipe))" 
 						size="sm" 
 						variant="outline-primary"
 						@click='addToFavorites(recipe)'>
@@ -35,7 +35,7 @@
 					<p>{{ recipe.description }}</p>							
 				</b-card-text>	
 
-				<b-button v-if="!existsInFavorites(recipe)" 
+				<b-button v-if="!(favorites.existsInFavorites(recipe))" 
 						size="sm" 
 						variant="outline-primary"
 						@click='addToFavorites(recipe)'>
@@ -61,35 +61,23 @@ export default {
 			favorites: new app.Favorites()
 		};
 	},
-
 	methods: {
-		existsInFavorites: function (recipe) {
+		addToFavorites: function () {
+			var wasAdded = this.favorites.addToFavorites(this.recipe);
 
-			if (this.favorites.getItem(recipe.id)) {
-				return true;
-			}
-			else {
-				return false;
-			}
-		},
+			if (wasAdded) {
 
-		addToFavorites: function (recipeId) {
-
-			let favorites = new app.Favorites();
-
-			// Use a shorter name for this.$createElement
-			const h = this.$createElement;
-			// Create the message
-			const vNodesMsg = h(
-				'p',
-				{ class: ['text-left', 'mb-0'] },
-				[
-					h('strong', {}, 'Recipe'),
-					` added to favorites`,
-				]
-			);
-
-			if (favorites.add(recipeId)) {
+				// Use a shorter name for this.$createElement
+				const h = this.$createElement;
+				// Create the message
+				const vNodesMsg = h(
+					'p',
+					{ class: ['text-left', 'mb-0'] },
+					[
+						h('strong', {}, 'Recipe'),
+						` added to favorites`,
+					]
+				);
 
 				this.$bvToast.toast([vNodesMsg], {
 					autoHideDelay: 4000,
@@ -98,14 +86,8 @@ export default {
 					solid: true,
 					noCloseButton: true
 				});
-
-				this.$store.commit('setFavoriteCount', favorites.count());
-
-				this.favorites = favorites;
 			}
 		}
-
-
 	}
 };
 </script>
