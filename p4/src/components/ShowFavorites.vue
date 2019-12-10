@@ -2,10 +2,10 @@
     <div id='favorites'>
         <h2>Favorites</h2> 
 		<ul class='favorites-list'>
-            <li v-for='recipe in favoriteRecipes' :key='recipe.id'>
+            <li data-test="fav-name" v-for='recipe in favoriteRecipes' :key='recipe.id'>
 				<div>					
 					<label class="text-left">{{ recipe.name }}</label>
-					<button class="destroy" @click="removeFavorite(recipe.id)"></button>
+					<button :data-test-id="recipe.id" class="destroy" @click="removeFavorite(recipe.id)"></button>
 				</div>
 			</li>
         </ul>

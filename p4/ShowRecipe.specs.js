@@ -1,11 +1,30 @@
-import { expect } from 'chai'
-import { shallowMount, RouterLinkStub } from '@vue/test-utils'
-import ShowRecipe from '@/components/ShowRecipe.vue'
+import { expect } from 'chai';
+import { shallowMount, RouterLinkStub } from '@vue/test-utils';
+import sinon from 'sinon';
+import ShowRecipe from '@/components/ShowRecipe.vue';
 
-import { FavoritesStub } from './FavoritesStub';
+//import * as favorites from '../../src/helpers/Favorites';
+
+const fv = {
+  addToFavorites() {
+    return true;
+  },
+  existsInFavorites() {
+    return false;
+
+  }
+}
+
+// console.log(fv.count());
 
 
 describe('ShowRecipe.vue', () => {
+
+  beforeEach(() => {
+    fv.addToFavorites = sinon.stub(fv, 'addToFavorites').returns(true);
+    fv.existsInFavorites = sinon.stub(fv, 'existsInFavorites').returns(true);
+  });
+
   it('shows a recipe', () => {
 
     // Define a recipe we can test
@@ -77,7 +96,7 @@ describe('ShowRecipe.vue', () => {
     const wrapper = shallowMount(ShowRecipe, {
       propsData: {
         recipe: recipe,
-        favorites: new FavoritesStub(),
+        favorites: fv,
         mode: 'not-main'
       },
       stubs: {

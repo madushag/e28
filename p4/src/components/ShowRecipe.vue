@@ -16,7 +16,7 @@
 				</b-card>
 			</router-link>
 			<br />
-			<b-button v-if="!(favorites.existsInFavorites(recipe))" 
+			<b-button :data-test-id="recipe.id" v-if="!(favorites.existsInFavorites(recipe))" 
 						size="sm" 
 						variant="outline-primary"
 						@click='addToFavorites(recipe)'>
@@ -35,7 +35,7 @@
 					<p>{{ recipe.description }}</p>							
 				</b-card-text>	
 
-				<b-button v-if="!(favorites.existsInFavorites(recipe))" 
+				<b-button :data-test-id="recipe.id" v-if="!(favorites.existsInFavorites(recipe))" 
 						size="sm" 
 						variant="outline-primary"
 						@click='addToFavorites(recipe)'>
