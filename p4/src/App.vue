@@ -1,15 +1,15 @@
 <template>
     <div id='app'>
-         <router-link exact :to='{ name: "home" }'>
-            <img id='logo' alt='RecipeBook logo' src='./assets/images/recipebook-logo.png' />
-         </router-link>
+		<router-link exact :to='{ name: "home" }'>
+			<img id='logo' alt='RecipeBook logo' src='./assets/images/recipebook-logo.png' />
+		</router-link>
         <nav>
             <ul>
-                <li v-for='link in links' :key='link'>
+                <li :data-test-nav-link="link" v-for='link in links' :key='link'>
                     <router-link exact :to='{ name: link }'>
                         {{ link }}
                         <span data-test-id="fav-count" v-if='link == "favorites"'>({{ favoriteCount }})</span>
-                        <span v-if='link == "shopping list"'>({{ shoppingListCount }})</span>
+                        <span data-test-id="shop-count" v-if='link == "shopping list"'>({{ shoppingListCount }})</span>
                     </router-link>
                 </li>
             </ul>

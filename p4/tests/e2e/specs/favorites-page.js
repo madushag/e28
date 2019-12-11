@@ -1,4 +1,4 @@
-describe('favorites', () => {
+describe('favorites-page', () => {
 
     ///////////////////////////////////////////////////////
     // retain localStorage state before/after each test
