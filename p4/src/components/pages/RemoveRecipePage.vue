@@ -6,7 +6,6 @@
 </template>
 
 <script>
-	// import * as app from "./../../app.js";
 	import ShowRecipes from "./../ShowRecipes.vue";
 
 	export default {

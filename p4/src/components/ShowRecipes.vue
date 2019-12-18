@@ -58,7 +58,6 @@
 								Remove
 							</b-button>
 						</b-card>
-						<!-- </router-link> -->
 					</b-col>
 				</b-row>
 			</b-container>

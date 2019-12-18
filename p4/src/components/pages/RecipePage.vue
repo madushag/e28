@@ -115,19 +115,18 @@
 			},
 
 			addToShoppingList: function(ingredientName, recipeId, amount, units, recipeName) {
-				// Use a shorter name for this.$createElement
-				const h = this.$createElement;
-				// Create the message
-				const addedToShopListMsg = h("p", { class: ["text-left", "mb-0"] }, [
-					h("strong", {}, ingredientName),
-					` added to shopping list`
-				]);
-
 				let quantity = "";
 				if (typeof units == "undefined") quantity = amount;
 				else quantity = amount + " " + units;
 
 				if (this.shoppingList.add(ingredientName, recipeId, quantity, recipeName)) {
+					// Use a shorter name for this.$createElement
+					const h = this.$createElement;
+					// Create the message
+					const addedToShopListMsg = h("p", { class: ["text-left", "mb-0"] }, [
+						h("strong", {}, ingredientName),
+						` added to shopping list`
+					]);
 					this.$bvToast.toast([addedToShopListMsg], {
 						autoHideDelay: 4000,
 						variant: "success",
