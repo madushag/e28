@@ -28,7 +28,7 @@
 		name: "app",
 		data: function() {
 			return {
-				links: ["home", "favorites", "shopping list", "add recipe"]
+				links: ["home", "favorites", "shopping list", "add recipe", "remove recipe"]
 			};
 		},
 		mounted() {

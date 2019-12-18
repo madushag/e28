@@ -15,7 +15,6 @@ export default new Vuex.Store({
 		setShoppingListCount(state, payload) {
 			state.shoppingListCount = payload;
 		},
-
 		setFavoriteCount(state, payload) {
 			state.favoriteCount = payload;
 		},
@@ -24,6 +23,9 @@ export default new Vuex.Store({
 		},
 		addRecipe(state, payload) {
 			_.merge(state.recipes, payload);
+		},
+		removeRecipeById(state, payload) {
+			state.recipes = _.omit(state.recipes, [payload.index]);
 		}
 	},
 	actions: {
@@ -31,6 +33,11 @@ export default new Vuex.Store({
 			app.axios.get(app.config.api + "/recipes.json").then(response => {
 				context.commit("setRecipes", response.data);
 			});
+		},
+		removeRecipe(context, recipe) {
+			app.axios
+				.delete(app.config.api + "/recipes/" + recipe.index + ".json")
+				.then(context.commit("removeRecipeById", recipe));
 		}
 	},
 	getters: {

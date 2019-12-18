@@ -2,7 +2,7 @@
 	<div id="favorites">
 		<h2>Favorites</h2>
 		<ul class="favorites-list">
-			<li data-test="fav-name" v-for="recipe in favoriteRecipes" :key="recipe.id">
+			<li data-test="fav-item" v-for="recipe in favoriteRecipes" :key="recipe.id">
 				<div>
 					<router-link :to="{ name: 'recipe', params: { id: recipe.id } }">
 						<label class="text-left">{{ recipe.name }}</label>

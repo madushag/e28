@@ -12,6 +12,7 @@ import RecipePage from "./components/pages/RecipePage.vue";
 import FavoritesPage from "./components/pages/FavoritesPage.vue";
 import ShoppingListPage from "./components/pages/ShoppingListPage.vue";
 import AddNewRecipePage from "./components/pages/AddNewRecipePage.vue";
+import RemoveRecipePage from "./components/pages/RemoveRecipePage.vue";
 import NotFoundPage from "./components/pages/NotFoundPage.vue";
 
 import "bootstrap/dist/css/bootstrap.css";
@@ -33,8 +34,9 @@ const routes = [
 	{ path: "/", component: HomePage, name: "home" },
 	{ path: "/favorites", component: FavoritesPage, name: "favorites" },
 	{ path: "/shopping-list", component: ShoppingListPage, name: "shopping list" },
-	{ path: "/recipes/:id", component: RecipePage, name: "recipe", props: true },
 	{ path: "/recipes/create", component: AddNewRecipePage, name: "add recipe" },
+	{ path: "/recipes/remove", component: RemoveRecipePage, name: "remove recipe" },
+	{ path: "/recipes/:id", component: RecipePage, name: "recipe", props: true },
 	{ path: "*", component: NotFoundPage }
 ];
 

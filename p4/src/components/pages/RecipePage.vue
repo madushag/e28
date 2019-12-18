@@ -1,7 +1,31 @@
 <template>
 	<div id="recipe-page" v-if="recipe">
-		<show-recipe :recipe="recipe"></show-recipe>
+		<b-card
+			:data-test-recipe-id="recipe.id"
+			v-if="recipe.id"
+			class="recipe-thumb rounded"
+			:img-alt="'Recipe image of ' + recipe.name"
+			:img-src="recipe.image | recipeImage"
+			img-left
+			img-height="190px"
+			img-width="250px"
+			:title="recipe.name"
+			align="center"
+		>
+			<b-card-text>
+				{{ recipe.description }}
+			</b-card-text>
 
+			<b-button
+				:data-test-add-to-fav-button-id="recipe.id"
+				:disabled="favorites.existsInFavorites(recipe)"
+				size="sm"
+				variant="primary"
+				@click="addToFavorites(recipe)"
+			>
+				Add to favorites
+			</b-button>
+		</b-card>
 		<br />
 
 		<h4 style="text-align:left">Ingredients</h4>
@@ -9,7 +33,12 @@
 
 		<ul class="cleanList">
 			<b-container>
-				<li v-for="ingredient in recipe.ingredients" :key="ingredient.name">
+				<li
+					data-test-id="ingredient"
+					:data-test-ingredient-name="ingredient.name"
+					v-for="ingredient in recipe.ingredients"
+					:key="ingredient.name"
+				>
 					<b-row>
 						<b-col cols="4"
 							><p class="text-left capitalize">
@@ -19,7 +48,8 @@
 						<b-col cols="4">{{ ingredient.amount }} {{ ingredient.unit }}</b-col>
 						<b-col cols="4">
 							<b-button
-								v-if="!existsInShoppingList(ingredient.name, recipe.id)"
+								:data-test-add-to-shopping-list-button-id="ingredient.name"
+								:disabled="existsInShoppingList(ingredient.name, recipe.id)"
 								size="sm"
 								variant="info"
 								@click="
@@ -45,7 +75,7 @@
 
 		<ul class="numberedList">
 			<b-container>
-				<li v-for="(step, index) in recipe.step" :key="index">
+				<li data-test-id="steps" v-for="(step, index) in recipe.steps" :key="index">
 					<b-row>
 						<b-col cols="12"
 							><p class="text-left">
@@ -57,21 +87,22 @@
 			</b-container>
 		</ul>
 
-		<router-link :to="'/'">&larr; Return to all recipes</router-link>
+		<router-link data-test-id="return-to-all-recipes" :to="'/'"
+			>&larr; Return to all recipes</router-link
+		>
 	</div>
 </template>
 
 <script>
 	import * as app from "./../../app.js";
-	import ShowRecipe from "./../ShowRecipe.vue";
 
 	export default {
 		name: "RecipePage",
-		components: { ShowRecipe },
 		props: ["id"],
 		data: function() {
 			return {
-				shoppingList: new app.ShoppingList()
+				shoppingList: new app.ShoppingList(),
+				favorites: new app.Favorites()
 			};
 		},
 		methods: {
@@ -107,6 +138,27 @@
 				}
 
 				this.$store.commit("setShoppingListCount", this.shoppingList.count());
+			},
+			addToFavorites: function() {
+				var wasAdded = this.favorites.addToFavorites(this.recipe);
+
+				if (wasAdded) {
+					// Use a shorter name for this.$createElement
+					const h = this.$createElement;
+					// Create the message
+					const vNodesMsg = h("p", { class: ["text-left", "mb-0"] }, [
+						h("strong", {}, "Recipe"),
+						` added to favorites`
+					]);
+
+					this.$bvToast.toast([vNodesMsg], {
+						autoHideDelay: 4000,
+						variant: "success",
+						appendToast: true,
+						solid: true,
+						noCloseButton: true
+					});
+				}
 			}
 		},
 		computed: {

@@ -84,10 +84,10 @@ nav ul {
 /*----------------------------------------------------
 PAGE SPECIFIC
 -----------------------------------------------------*/
-.card-img-right {
-	width: 20%;
-	height: 20%;
-}
+// .card-img-left {
+// 	width: 250px;
+// 	height: 240px;
+// }
 
 #recipes {
 	.recipe {
@@ -346,7 +346,7 @@ label.form-checkbox-label {
 }
 
 .form-help {
-	font-size: 1.4rem;
+	font-size: 0.9rem;
 	color: $gray;
 	margin-top: 5px;
 }
